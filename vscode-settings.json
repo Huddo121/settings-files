@@ -1,0 +1,40 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "files.autoSave": "onFocusChange",
+    "files.trimTrailingWhitespace": true,
+
+
+    "editor.fontFamily": "'Fira Code', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
+    "terminal.integrated.fontLigatures": true,
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
+    "editor.minimap.enabled": false,
+
+    //Make everything a bit bigger, even though we're on a higher resolution
+    // "window.zoomLevel": 1,
+
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/node_modules_prod": true,
+        "**/bower_components": true,
+        "**/target": true,
+        "build/": true,
+        "build-output": true,
+        "flow-typed/": true
+    },
+
+    //Pretty much always want eslint enabled
+    "eslint.enable": true,
+    "eslint.run": "onSave",
+
+    // Temporary fix for flickering on Hi-DPI external displays
+
+    "workbench.editor.showIcons": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "window.zoomLevel": 0,
+
+    "zenMode.hideTabs": false,
+    "extensions.ignoreRecommendations": false
+}
