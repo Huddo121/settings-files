@@ -3,7 +3,6 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -17,13 +16,6 @@
   networking.hostName = "Antares"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enabled = true;
-
-  # Select internationalisation properties.
-  # i18n = {
-  #   consoleFont = "Lat2-Terminus16";
-  #   consoleKeyMap = "us";
-  #   defaultLocale = "en_US.UTF-8";
-  # };
 
   # Set your time zone.
   time.timeZone = "Australia/Sydney";
@@ -123,8 +115,7 @@ map to guest = bad user
   nixpkgs.config.allowUnfree = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.pulseaudio.support32Bit = true;
-
-
+  
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.mhudson = {
     createHome = true;
@@ -140,7 +131,7 @@ map to guest = bad user
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "18.03"; # Did you read the comment?
+  system.nixos.stateVersion = "18.03"; # Did you read the comment?
 
   # Enable Virtualisation Config
   virtualisation.virtualbox.host.enable = true;
