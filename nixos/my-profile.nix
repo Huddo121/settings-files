@@ -10,28 +10,27 @@ with import <nixpkgs> {
   vscode
   idea.idea-ultimate
   emacs
-  git
   nginx
 
   # Terminal Emulator Stuff
-  enlightenment.terminology
-  tilda
+  # enlightenment.terminology
+  # tilda
   tmux
+  kitty
   zsh
   oh-my-zsh
 
   # Miscellaneous utilities
-  solaar # Logitech unifying receiver software
+  # solaar # Logitech unifying receiver software
 
   # Media software
   discord
-  ffmpeg
   obs-studio
   steam
   vlc
 
   # Gnome Extensions
-  gnomeExtensions.impatience 
-  gnomeExtensions.system-monitor
-  gnomeExtensions.nohotcorner
+  # gnomeExtensions.impatience 
+  # gnomeExtensions.system-monitor
+  # gnomeExtensions.nohotcorner
 ]
