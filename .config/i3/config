@@ -48,9 +48,9 @@ set $sol-cyan           #2AA198
 set $sol-green          #859900
 
 # Class                 Border              Background         Text                 Split
-client.focused          $sol-orange         $sol-orange        $sol-base3           $sol-red
-client.unfocused        $sol-base02         $sol-base03        $sol-base0           $sol-base-02
-client.focused_inactive $sol-base02         $sol-base03        $sol-base0           $sol-base-02
+client.focused          $sol-orange         $sol-orange        $sol-base3           $sol-yellow
+client.unfocused        $sol-base02         $sol-base02        $sol-base0           $sol-base-02
+client.focused_inactive $sol-base02         $sol-base02        $sol-base0           $sol-base-02
 client.urgent           $sol-red            $sol-red           $sol-base3           $sol-orange
 
 # i3 config file (v4)
@@ -213,7 +213,7 @@ bindsym $mod+Ctrl+semi move workspace to output right
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3) (also refreshes compton)
-bindsym $mod+Shift+r exec "pkill -SIGUSR1 compton && i3-msg restart"
+bindsym $mod+Shift+r exec "pkill -SIGUSR1 compton; i3-msg restart"
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -273,7 +273,7 @@ bar {
 }
 
 # Compositor and Monitor setup
-exec compton --conf=.config/compton/compton.conf
+exec_always compton
 exec --no-startup-id xrandr --output DP-1.2.1 --auto --output DP-1.1 --auto --right-of DP-1.2.1 --output DVI-I-1 --auto --right-of DP-1.1
 
 # Set background image
