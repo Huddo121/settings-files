@@ -17,7 +17,6 @@
   };
 
   networking.hostName = "Arcturus"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
 
   # Set your time zone.
@@ -26,7 +25,18 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget vim firefox git nix-repl which bind ffmpeg-full xscreensaver
+    wget
+    vim
+    firefox
+    git
+    nix-repl
+    which
+    bind
+    ffmpeg-full
+    compton
+    xscreensaver
+    feh
+    xorg.xmodmap
   ];
 
   programs.zsh.enable = true;
@@ -39,6 +49,7 @@
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
 
   fonts.enableFontDir = true;
+  fonts.fontconfig.ultimate.enable = true;
   fonts.fonts = with pkgs; [
     fira-code
     fira-code-symbols
@@ -52,12 +63,13 @@
       layout = "us";
       libinput.enable = true;
       xkbOptions = "eurosign:e";
+
       displayManager.gdm.enable = true;
-      desktopManager = {
-        gnome3.enable = true;
-        default = "gnome3";
+      windowManager.i3 = {
+        enable = true;
+        package = pkgs.i3-gaps;
       };
-      windowManager.i3.enable = true;
+
     };
 
     printing.enable = true;
@@ -94,12 +106,9 @@ map to guest = bad user
   };
 
   nixpkgs.config.allowUnfree = true;
+
   hardware = {
     opengl.driSupport32Bit = true;
-    pulseaudio = {
-      enable = true;
-      support32Bit = true;
-    };
   };
 
   # Open ports in the firewall.
@@ -121,6 +130,7 @@ map to guest = bad user
 
   # Enable sound.
   sound.enable = true;
+  sound.mediaKeys.enable = true;
 
   # Enable Virtualisation Config
   virtualisation.virtualbox.host.enable = true;
@@ -129,7 +139,7 @@ map to guest = bad user
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.mhudson = {
     createHome   = true;
-    extraGroups  = [ "wheel" "video" "audio" "disk" "networkmanager" ];
+    extraGroups  = [ "wheel" "video" "audio" "disk" "networkmanager" "docker" "vboxusers" ];
     group        = "users";
     home         = "/home/mhudson";
     isNormalUser = true;

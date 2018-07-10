@@ -13,12 +13,11 @@ with import <nixpkgs> {
   nginx
 
   # Terminal Emulator Stuff
-  # enlightenment.terminology
-  # tilda
   tmux
   kitty
   zsh
   oh-my-zsh
+  htop
 
   # Miscellaneous utilities
   # solaar # Logitech unifying receiver software
