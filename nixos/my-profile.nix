@@ -5,7 +5,7 @@ with import <nixpkgs> {
 [ 
   # Web-stuff
   firefox
-  
+
   # Basic dev tools
   vscode
   idea.idea-ultimate
@@ -28,6 +28,11 @@ with import <nixpkgs> {
   steam
   vlc
 
+  # Assorted tools
+  nautilus
+  gthumb
+  lxappearance # Doesn't work for GTK2 out of the box
+ 
   # Gnome Extensions
   # gnomeExtensions.impatience 
   # gnomeExtensions.system-monitor
