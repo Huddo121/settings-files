@@ -7,6 +7,6 @@ __FILES="
 	kitty/kitty.conf
 	compton.conf"
 
-files=($__FILES)
-
-# I'm sure I could do something here that would smartly copy files back and forth
+for file in $__FILES; do
+    cp -r ~/.config/$file ./.config/$file
+done
