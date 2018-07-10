@@ -29,10 +29,14 @@ with import <nixpkgs> {
   vlc
 
   # Assorted tools
-  nautilus
+  gnome3.nautilus
   gthumb
   lxappearance # Doesn't work for GTK2 out of the box
- 
+
+  # Themes
+  numix-solarized-gtk-theme
+  numix-cursor-theme
+
   # Gnome Extensions
   # gnomeExtensions.impatience 
   # gnomeExtensions.system-monitor
