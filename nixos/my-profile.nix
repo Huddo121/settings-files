@@ -21,6 +21,8 @@ with import <nixpkgs> {
 
   # Miscellaneous utilities
   # solaar # Logitech unifying receiver software
+  gucharmap
+  flameshot 
 
   # Media software
   discord
@@ -32,6 +34,7 @@ with import <nixpkgs> {
   gnome3.nautilus
   gthumb
   lxappearance # Doesn't work for GTK2 out of the box
+  super-user-spark
 
   # Themes
   numix-solarized-gtk-theme

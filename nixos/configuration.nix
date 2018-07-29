@@ -33,10 +33,16 @@
     which
     bind
     ffmpeg-full
+
+    # Desktop/WM stuff
     compton
     xscreensaver
     feh
     xorg.xmodmap
+    (polybar.override {
+      i3GapsSupport = true;
+      alsaSupport = true;
+    })
   ];
 
   programs.zsh.enable = true;
@@ -53,6 +59,8 @@
   fonts.fonts = with pkgs; [
     fira-code
     fira-code-symbols
+    font-awesome-ttf
+    material-icons
   ];
 
   # List services that you want to enable:
@@ -101,6 +109,13 @@ map to guest = bad user
                 path = "/media/quatro";
                 "read only" = false;
             };
+            uno = {
+              browseable = "yes";
+              comment = "Uno";
+              "guest ok" = "yes";
+              path = "/media/uno";
+              "read only" = false;
+            };
         };
     };
   };
@@ -109,6 +124,10 @@ map to guest = bad user
 
   hardware = {
     opengl.driSupport32Bit = true;
+    pulseaudio = {
+      enable = true;
+      support32Bit = true;
+    };
   };
 
   # Open ports in the firewall.
