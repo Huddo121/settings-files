@@ -1,0 +1,8 @@
+card zsh {
+  into ~
+  outof oh-my-zsh
+
+  .zshrc
+  .oh-my-zsh/custom/themes/agnoster-mh.zsh-theme
+}
+

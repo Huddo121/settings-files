@@ -1,0 +1,7 @@
+card nixos {
+  into /etc/nixos
+  outof nixos
+
+  configuration.nix
+}
+
