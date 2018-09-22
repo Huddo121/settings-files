@@ -29,7 +29,7 @@
     vim
     firefox
     git
-    nix-repl
+    # nix-repl
     which
     bind
     ffmpeg-full
@@ -61,6 +61,7 @@
     fira-code-symbols
     font-awesome-ttf
     material-icons
+    source-code-pro
   ];
 
   # List services that you want to enable:
@@ -170,6 +171,6 @@ map to guest = bad user
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.nixos.stateVersion = "18.03"; # Did you read the comment?
+  system.stateVersion = "18.03"; # Did you read the comment?
 
 }

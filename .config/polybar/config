@@ -129,13 +129,13 @@ label = %percentage_used:2%%
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 1
 
-date = " %c"
-date-alt = "%Y-%m-%d"
+date = "%B %e"
+date-alt = " %FT%T%z"
 
-time = ""
-time-alt = "%H:%M"
+time = "%I:%M %p"
+time-alt = ""
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}

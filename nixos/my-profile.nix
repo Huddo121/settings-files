@@ -29,12 +29,14 @@ with import <nixpkgs> {
   obs-studio
   steam
   vlc
+  pavucontrol
 
   # Assorted tools
   gnome3.nautilus
   gthumb
   lxappearance # Doesn't work for GTK2 out of the box
   super-user-spark
+  ispell
 
   # Themes
   numix-solarized-gtk-theme
