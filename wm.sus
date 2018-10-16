@@ -2,7 +2,6 @@ card wm {
   into ~/.config
   outof .config
 
-  compton.conf
   i3/config
   kitty/kitty.conf
   polybar/config

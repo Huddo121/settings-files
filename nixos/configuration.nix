@@ -81,6 +81,32 @@
 
     };
 
+    compton = {
+      enable = true;
+      backend = "glx";
+      vSync = "opengl-swc";
+      opacityRules = [
+        "75:class_g = 'kitty' && !_NET_WM_STATE@:32a"
+        "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
+      ];
+
+      shadow = true;
+      shadowOpacity = "0.33";
+      shadowOffsets = [ (-10) 0 ];
+      shadowExclude = [ "_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'" ];
+
+      fade = true;
+      fadeDelta = 2;
+
+      extraOptions = ''
+no-dnd-shadow = true;
+no-dock-shadow = true;
+clear-shadow = true;
+shadow-radius = 5;
+      '';
+
+    };
+
     printing.enable = true;
 
     # Enable the OpenSSH daemon.
