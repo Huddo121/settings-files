@@ -101,13 +101,11 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Dropdown terminal
 
-exec --no-startup-id kitty --name=dropdown 
+exec --no-startup-id kitty --name=dropdown &
 
-for_window [instance="dropdown"] floating enable
-for_window [instance="dropdown"] move scratchpad
-for_window [instance="dropdown"] resize set 1920 300
+for_window [instance="dropdown"] move scratchpad, floating enable, resize set 1920 300, move position 0 0
 
-bindsym Ctrl+grave [instance="dropdown"] scratchpad show;
+bindsym Ctrl+grave [instance="dropdown"] scratchpad show
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
@@ -280,7 +278,6 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id flameshot
 
 # Compositor and Monitor setup
-exec compton
 exec --no-startup-id xrandr --output DP-1.2.1 --auto --output DP-1.1 --auto --right-of DP-1.2.1 --output DVI-I-1 --auto --right-of DP-1.1
 
 # Set background image
