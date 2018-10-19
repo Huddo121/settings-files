@@ -11,6 +11,7 @@ with import <nixpkgs> {
   idea.idea-ultimate
   emacs
   nginx
+  postman
 
   # Terminal Emulator Stuff
   tmux

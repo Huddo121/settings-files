@@ -137,7 +137,7 @@ date-alt = " %FT%T%z"
 time = "%I:%M %p"
 time-alt = ""
 
-format-prefix = 
+;format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
 
 label = %date% %time%

@@ -85,6 +85,7 @@
       enable = true;
       backend = "glx";
       vSync = "opengl-swc";
+      refreshRate = 60;
       opacityRules = [
         "75:class_g = 'kitty' && !_NET_WM_STATE@:32a"
         "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
