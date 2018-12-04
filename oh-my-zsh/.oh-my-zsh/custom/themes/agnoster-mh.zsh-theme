@@ -191,11 +191,24 @@ prompt_dir() {
   prompt_segment blue black '%~'
 }
 
-# Virtualenv: current working virtualenv
-prompt_virtualenv() {
-  local virtualenv_path="$VIRTUAL_ENV"
-  if [[ -n $virtualenv_path && -n $VIRTUAL_ENV_DISABLE_PROMPT ]]; then
-    prompt_segment blue black "(`basename $virtualenv_path`)"
+# nix-shell: currently running nix-shell
+# See https://github.com/chisui/zsh-nix-shell
+prompt_nix_shell() {
+  if [[ -n "$IN_NIX_SHELL" ]]; then
+    if [[ -n $NIX_SHELL_PACKAGES ]]; then
+      local package_names=""
+      local packages=($NIX_SHELL_PACKAGES)
+      for package in $packages; do
+        package_names+=" ${package##*.}"
+      done
+      prompt_segment black yellow "{$package_names }"
+    elif [[ -n $name ]]; then
+      local cleanName=${name#interactive-}
+      cleanName=${cleanName%-environment}
+      prompt_segment black yellow "{ $cleanName }"
+    else # This case is only reached if the nix-shell plugin isn't installed or failed in some way
+      prompt_segment black yellow "nix-shell {}"
+    fi
   fi
 }
 
@@ -217,7 +230,7 @@ prompt_status() {
 build_prompt() {
   RETVAL=$?
   prompt_status
-  prompt_virtualenv
+  prompt_nix_shell
   prompt_context
   prompt_dir
   prompt_git
