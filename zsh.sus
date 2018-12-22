@@ -3,6 +3,8 @@ card zsh {
   outof oh-my-zsh
 
   .zshrc
-  .oh-my-zsh/custom/themes/agnoster-mh.zsh-theme
-}
 
+  # The following is somewhat specific, so as to not delete the entire custom directory.
+  .oh-my-zsh/custom/themes/agnoster-mh.zsh-theme
+  .oh-my-zsh/custom/plugins/nix-shell
+}
