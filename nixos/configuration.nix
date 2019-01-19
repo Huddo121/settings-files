@@ -83,7 +83,7 @@
       enable = true;
       backend = "glx";
       opacityRules = [
-        # "75:class_g = 'kitty' && !_NET_WM_STATE@:32a"
+        "85:class_g = 'kitty' && !_NET_WM_STATE@:32a"
         "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
       ];
 
