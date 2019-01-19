@@ -27,7 +27,6 @@
   environment.systemPackages = with pkgs; [
     wget
     vim
-    firefox
     git
     # nix-repl
     which
@@ -71,9 +70,8 @@
       enable = true;
       layout = "us";
       libinput.enable = true;
-      xkbOptions = "eurosign:e";
+      xkbOptions = "caps:hyper";
 
-      displayManager.gdm.enable = true;
       windowManager.i3 = {
         enable = true;
         package = pkgs.i3-gaps;
@@ -84,10 +82,8 @@
     compton = {
       enable = true;
       backend = "glx";
-      vSync = "opengl-swc";
-      refreshRate = 60;
       opacityRules = [
-        "75:class_g = 'kitty' && !_NET_WM_STATE@:32a"
+        # "75:class_g = 'kitty' && !_NET_WM_STATE@:32a"
         "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
       ];
 
@@ -130,7 +126,7 @@ map to guest = bad user
         enableWinbindd = true;
         nsswins = true;
         shares = {
-            public = { 
+            public = {
                 browseable = "yes";
                 comment = "Public samba share.";
                 "guest ok" = "yes";
@@ -160,7 +156,7 @@ map to guest = bad user
 
   # Open ports in the firewall.
   networking.firewall.allowPing = true;
-  networking.firewall.allowedTCPPorts = [ 
+  networking.firewall.allowedTCPPorts = [
       22      # SSH
       139 445 # Samba
       32400   # PLEX
@@ -169,7 +165,7 @@ map to guest = bad user
       8989    # Sonarr
       6656    # Moko file share
   ];
-  networking.firewall.allowedUDPPorts = [ 
+  networking.firewall.allowedUDPPorts = [
       137 138 # Samba
       8080    # SABNzbd
       32400   # PLEX

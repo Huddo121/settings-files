@@ -1,10 +1,11 @@
 # Install with nix-env -f my-profile.nix -i
-with import <nixpkgs> { 
+with import <nixpkgs> {
   config = { allowUnfree = true; };
 };
-[ 
+[
   # Web-stuff
-  firefox
+  google-chrome
+  slack
 
   # Basic dev tools
   vscode
@@ -23,7 +24,7 @@ with import <nixpkgs> {
   # Miscellaneous utilities
   # solaar # Logitech unifying receiver software
   gucharmap
-  flameshot 
+  flameshot
 
   # Media software
   discord
@@ -44,7 +45,7 @@ with import <nixpkgs> {
   numix-cursor-theme
 
   # Gnome Extensions
-  # gnomeExtensions.impatience 
+  # gnomeExtensions.impatience
   # gnomeExtensions.system-monitor
   # gnomeExtensions.nohotcorner
 ]
