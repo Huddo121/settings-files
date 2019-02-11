@@ -115,6 +115,7 @@ bindsym Ctrl+grave [instance="dropdown"] scratchpad show
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+d exec rofi -show run -theme solarized -show-icons -markup
 
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down

@@ -16,6 +16,10 @@
     efi.canTouchEfiVariables = true;
   };
 
+  boot.extraModulePackages = [
+     pkgs.linuxPackages.rtl8821au  # USB wifi
+  ];
+
   networking.hostName = "Arcturus"; # Define your hostname.
   networking.networkmanager.enable = true;
 
@@ -42,6 +46,8 @@
       i3GapsSupport = true;
       alsaSupport = true;
     })
+
+    firefox
   ];
 
   programs.zsh.enable = true;
@@ -72,37 +78,42 @@
       libinput.enable = true;
       xkbOptions = "caps:hyper";
 
-      windowManager.i3 = {
-        enable = true;
-        package = pkgs.i3-gaps;
+      # windowManager.i3 = {
+      #   enable = true;
+      #   package = pkgs.i3-gaps;
+      # };
+
+      desktopManager = {
+        gnome3.enable = true;
+        default = "gnome3";
       };
 
     };
 
-    compton = {
-      enable = true;
-      backend = "glx";
-      opacityRules = [
-        "85:class_g = 'kitty' && !_NET_WM_STATE@:32a"
-        "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
-      ];
-
-      shadow = true;
-      shadowOpacity = "0.33";
-      shadowOffsets = [ (-10) 0 ];
-      shadowExclude = [ "_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'" ];
-
-      fade = true;
-      fadeDelta = 2;
-
-      extraOptions = ''
-no-dnd-shadow = true;
-no-dock-shadow = true;
-clear-shadow = true;
-shadow-radius = 5;
-      '';
-
-    };
+#    compton = {
+#      enable = true;
+#      backend = "glx";
+#      opacityRules = [
+#        "85:class_g = 'kitty' && !_NET_WM_STATE@:32a"
+#        "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
+#      ];
+#
+#      shadow = true;
+#      shadowOpacity = "0.33";
+#      shadowOffsets = [ (-10) 0 ];
+#      shadowExclude = [ "_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'" ];
+#
+#      fade = true;
+#      fadeDelta = 2;
+#
+#      extraOptions = ''
+#no-dnd-shadow = true;
+#no-dock-shadow = true;
+#clear-shadow = true;
+#shadow-radius = 5;
+#      '';
+#
+#    };
 
     printing.enable = true;
 
@@ -176,7 +187,7 @@ map to guest = bad user
   sound.mediaKeys.enable = true;
 
   # Enable Virtualisation Config
-  virtualisation.virtualbox.host.enable = true;
+  # virtualisation.virtualbox.host.enable = true;
   virtualisation.docker.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

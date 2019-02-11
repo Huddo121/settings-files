@@ -4,7 +4,7 @@ with import <nixpkgs> {
 };
 [
   # Web-stuff
-  google-chrome
+  # google-chrome
   slack
 
   # Basic dev tools
@@ -12,7 +12,7 @@ with import <nixpkgs> {
   idea.idea-ultimate
   emacs
   nginx
-  postman
+  # postman
 
   # Terminal Emulator Stuff
   tmux
@@ -45,7 +45,7 @@ with import <nixpkgs> {
   numix-cursor-theme
 
   # Gnome Extensions
-  # gnomeExtensions.impatience
-  # gnomeExtensions.system-monitor
-  # gnomeExtensions.nohotcorner
+  gnomeExtensions.impatience
+  gnomeExtensions.system-monitor
+  gnomeExtensions.nohotcorner
 ]
