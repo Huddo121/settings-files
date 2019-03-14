@@ -16,8 +16,14 @@
     efi.canTouchEfiVariables = true;
   };
 
+  boot.extraModulePackages = [
+    config.boot.kernelPackages.rtl8814au
+ ];
+
   networking.hostName = "Arcturus"; # Define your hostname.
   networking.networkmanager.enable = true;
+  networking.networkmanager.wifi.powersave = false;
+  powerManagement.enable = false;
 
   # Set your time zone.
   time.timeZone = "Australia/Sydney";
@@ -27,22 +33,24 @@
   environment.systemPackages = with pkgs; [
     wget
     vim
-    firefox
     git
-    # nix-repl
     which
     bind
     ffmpeg-full
 
     # Desktop/WM stuff
     compton
-    xscreensaver
+    gnome3.gnome-screensaver
+    gnome3.gnome-screenshot
+    
     feh
     xorg.xmodmap
     (polybar.override {
       i3GapsSupport = true;
       alsaSupport = true;
     })
+
+    firefox
   ];
 
   programs.zsh.enable = true;
@@ -51,8 +59,6 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.bash.enableCompletion = true;
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
 
   fonts.enableFontDir = true;
   fonts.fontconfig.ultimate.enable = true;
@@ -71,23 +77,29 @@
       enable = true;
       layout = "us";
       libinput.enable = true;
-      xkbOptions = "eurosign:e";
+      xkbOptions = "caps:hyper";
 
-      displayManager.gdm.enable = true;
       windowManager.i3 = {
         enable = true;
         package = pkgs.i3-gaps;
       };
 
+      desktopManager = {
+        default = "xfce";
+        xterm.enable = false;
+        xfce ={
+          enable = true;
+          noDesktop = true;
+          enableXfwm = false;
+        };
+      };
     };
 
     compton = {
       enable = true;
       backend = "glx";
-      vSync = "opengl-swc";
-      refreshRate = 60;
       opacityRules = [
-        "75:class_g = 'kitty' && !_NET_WM_STATE@:32a"
+        "85:class_g = 'kitty' && !_NET_WM_STATE@:32a"
         "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
       ];
 
@@ -130,7 +142,7 @@ map to guest = bad user
         enableWinbindd = true;
         nsswins = true;
         shares = {
-            public = { 
+            public = {
                 browseable = "yes";
                 comment = "Public samba share.";
                 "guest ok" = "yes";
@@ -160,7 +172,7 @@ map to guest = bad user
 
   # Open ports in the firewall.
   networking.firewall.allowPing = true;
-  networking.firewall.allowedTCPPorts = [ 
+  networking.firewall.allowedTCPPorts = [
       22      # SSH
       139 445 # Samba
       32400   # PLEX
@@ -169,7 +181,7 @@ map to guest = bad user
       8989    # Sonarr
       6656    # Moko file share
   ];
-  networking.firewall.allowedUDPPorts = [ 
+  networking.firewall.allowedUDPPorts = [
       137 138 # Samba
       8080    # SABNzbd
       32400   # PLEX
@@ -180,7 +192,7 @@ map to guest = bad user
   sound.mediaKeys.enable = true;
 
   # Enable Virtualisation Config
-  virtualisation.virtualbox.host.enable = true;
+  # virtualisation.virtualbox.host.enable = true;
   virtualisation.docker.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
