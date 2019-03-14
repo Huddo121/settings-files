@@ -17,11 +17,13 @@
   };
 
   boot.extraModulePackages = [
-     pkgs.linuxPackages.rtl8821au  # USB wifi
-  ];
+    config.boot.kernelPackages.rtl8814au
+ ];
 
   networking.hostName = "Arcturus"; # Define your hostname.
   networking.networkmanager.enable = true;
+  networking.networkmanager.wifi.powersave = false;
+  powerManagement.enable = false;
 
   # Set your time zone.
   time.timeZone = "Australia/Sydney";
@@ -32,14 +34,15 @@
     wget
     vim
     git
-    # nix-repl
     which
     bind
     ffmpeg-full
 
     # Desktop/WM stuff
     compton
-    xscreensaver
+    gnome3.gnome-screensaver
+    gnome3.gnome-screenshot
+    
     feh
     xorg.xmodmap
     (polybar.override {
@@ -56,8 +59,6 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.bash.enableCompletion = true;
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
 
   fonts.enableFontDir = true;
   fonts.fontconfig.ultimate.enable = true;
@@ -78,42 +79,46 @@
       libinput.enable = true;
       xkbOptions = "caps:hyper";
 
-      # windowManager.i3 = {
-      #   enable = true;
-      #   package = pkgs.i3-gaps;
-      # };
-
-      desktopManager = {
-        gnome3.enable = true;
-        default = "gnome3";
+      windowManager.i3 = {
+        enable = true;
+        package = pkgs.i3-gaps;
       };
 
+      desktopManager = {
+        default = "xfce";
+        xterm.enable = false;
+        xfce ={
+          enable = true;
+          noDesktop = true;
+          enableXfwm = false;
+        };
+      };
     };
 
-#    compton = {
-#      enable = true;
-#      backend = "glx";
-#      opacityRules = [
-#        "85:class_g = 'kitty' && !_NET_WM_STATE@:32a"
-#        "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
-#      ];
-#
-#      shadow = true;
-#      shadowOpacity = "0.33";
-#      shadowOffsets = [ (-10) 0 ];
-#      shadowExclude = [ "_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'" ];
-#
-#      fade = true;
-#      fadeDelta = 2;
-#
-#      extraOptions = ''
-#no-dnd-shadow = true;
-#no-dock-shadow = true;
-#clear-shadow = true;
-#shadow-radius = 5;
-#      '';
-#
-#    };
+    compton = {
+      enable = true;
+      backend = "glx";
+      opacityRules = [
+        "85:class_g = 'kitty' && !_NET_WM_STATE@:32a"
+        "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
+      ];
+
+      shadow = true;
+      shadowOpacity = "0.33";
+      shadowOffsets = [ (-10) 0 ];
+      shadowExclude = [ "_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'" ];
+
+      fade = true;
+      fadeDelta = 2;
+
+      extraOptions = ''
+no-dnd-shadow = true;
+no-dock-shadow = true;
+clear-shadow = true;
+shadow-radius = 5;
+      '';
+
+    };
 
     printing.enable = true;
 
