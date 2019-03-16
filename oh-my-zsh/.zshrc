@@ -102,3 +102,7 @@ autoload -U compinit && compinit
 
 # Stop sharing history between different terminal windows
 unsetopt share_history
+
+# Use vim (or neovim) as the default system editor
+export EDITOR=vim
+
