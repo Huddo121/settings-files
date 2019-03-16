@@ -64,7 +64,7 @@ height = 28
 
 modules-left = workspaces
 modules-center = date
-modules-right = volume memory cpu powermenu
+modules-right = wifi volume memory cpu session
 
 module-margin-right = 4
 
@@ -135,9 +135,8 @@ date = "%B %e"
 date-alt = " %FT%T%z"
 
 time = "%I:%M %p"
-time-alt = ""
+time-alt = 
 
-;format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
 
 label = %date% %time%
@@ -184,6 +183,21 @@ ramp-volume-9 = 
 ;ramp-volume-7 = 
 ;ramp-volume-8 = 
 ;ramp-volume-9 = 
+
+[module/wifi]
+type = internal/network
+interface = wlp0s20u1
+format-connected = <ramp-signal> <label-connected>
+label-connected = %downspeed%
+
+ramp-signal-0 = 
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/session]
+type = custom/text
+content = 
+content-foreground = ${colors.sol-red}
+click-left = xfce4-session-logout
 
 [settings]
 screenchange-reload = true
