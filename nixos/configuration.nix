@@ -40,17 +40,16 @@
 
     # Desktop/WM stuff
     compton
-    gnome3.gnome-screensaver
-    gnome3.gnome-screenshot
-    
+    xscreensaver
     feh
     xorg.xmodmap
     (polybar.override {
       i3GapsSupport = true;
       alsaSupport = true;
     })
+    flameshot
 
-    firefox
+    google-chrome
   ];
 
   programs.zsh.enable = true;
@@ -98,6 +97,8 @@
     compton = {
       enable = true;
       backend = "glx";
+      vSync = "opengl-swc";
+      refreshRate = 60;
       opacityRules = [
         "85:class_g = 'kitty' && !_NET_WM_STATE@:32a"
         "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"

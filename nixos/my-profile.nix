@@ -3,16 +3,15 @@ with import <nixpkgs> {
   config = { allowUnfree = true; };
 };
 [
-  # Web-stuff
-  # google-chrome
+  # Chat apps
   slack
+  discord
 
   # Basic dev tools
   vscode
   idea.idea-ultimate
   emacs
-  nginx
-  # postman
+  nginx 
 
   # Terminal Emulator Stuff
   tmux
@@ -22,30 +21,20 @@ with import <nixpkgs> {
   htop
 
   # Miscellaneous utilities
-  # solaar # Logitech unifying receiver software
-  gucharmap
-  flameshot
+  bat # better-cat
 
   # Media software
-  discord
+  audacity
   obs-studio
   steam
   vlc
   pavucontrol
 
   # Assorted tools
-  gnome3.nautilus
-  gthumb
-  lxappearance # Doesn't work for GTK2 out of the box
   super-user-spark
   ispell
 
   # Themes
   numix-solarized-gtk-theme
   numix-cursor-theme
-
-  # Gnome Extensions
-  gnomeExtensions.impatience
-  gnomeExtensions.system-monitor
-  gnomeExtensions.nohotcorner
 ]
