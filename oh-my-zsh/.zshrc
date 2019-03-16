@@ -87,8 +87,11 @@ source $ZSH/oh-my-zsh.sh
 # export NVM_DIR="/Users/mhudson/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# Make sure Nix is available
-. $HOME/.nix-profile/etc/profile.d/nix.sh
+# Make sure Nix is available on macOS
+NIX_BOOTSTRAP=$HOME/.nix-profile/etc/profile.d/nix.sh
+if [ -f NIX_BOOTSTRAP ]; then
+    . $HOME/.nix-profile/etc/profile.d/nix.sh
+fi
 
 # Nix-shell extension for ZSH
 . $ZSH_CUSTOM/plugins/nix-shell/nix-shell.plugin.zsh
