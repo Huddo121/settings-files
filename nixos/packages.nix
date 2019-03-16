@@ -1,4 +1,4 @@
-# Install with nix-env -f my-profile.nix -i
+# Install with nix-env -f packages.nix -i
 with import <nixpkgs> {
   config = { allowUnfree = true; };
 };
@@ -11,7 +11,7 @@ with import <nixpkgs> {
   vscode
   idea.idea-ultimate
   emacs
-  nginx 
+  nginx
 
   # Terminal Emulator Stuff
   tmux

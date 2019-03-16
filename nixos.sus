@@ -3,5 +3,7 @@ card nixos {
   outof nixos
 
   configuration.nix
-}
 
+  spark file zsh.sus
+  spark file wm.sus
+}
