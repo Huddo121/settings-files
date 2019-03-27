@@ -16,6 +16,9 @@ with import <nixpkgs> {
   oh-my-zsh
   zsh
 
+  # Miscellaneous utilities
+  bat # better-cat
+
   # Media software
   discord
   obs-studio

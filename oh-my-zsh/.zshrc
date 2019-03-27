@@ -89,7 +89,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Make sure Nix is available on macOS
 NIX_BOOTSTRAP=$HOME/.nix-profile/etc/profile.d/nix.sh
-if [ -f NIX_BOOTSTRAP ]; then
+if [ -e $NIX_BOOTSTRAP ]; then
     . $HOME/.nix-profile/etc/profile.d/nix.sh
 fi
 
