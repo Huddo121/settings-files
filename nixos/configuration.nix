@@ -48,6 +48,8 @@
       alsaSupport = true;
     })
     flameshot
+    rofi
+    sddm-kcm
 
     google-chrome
   ];
@@ -58,6 +60,11 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.bash.enableCompletion = true;
+
+  # Set up the JDK
+  programs.java = {
+    enable = true;
+  };
 
   fonts.enableFontDir = true;
   fonts.fontconfig.ultimate.enable = true;
@@ -89,8 +96,13 @@
         xfce ={
           enable = true;
           noDesktop = true;
+	  thunarPlugins = [ pkgs.xfce.thunar-archive-plugin ];
           enableXfwm = false;
         };
+      };
+
+      displayManager.sddm = {
+        enable = true;
       };
     };
 
@@ -120,6 +132,8 @@ shadow-radius = 5;
       '';
 
     };
+
+    dbus.packages = [ pkgs.flameshot ];
 
     printing.enable = true;
 

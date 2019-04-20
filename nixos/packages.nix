@@ -10,7 +10,7 @@ with import <nixpkgs> {
   # Basic dev tools
   vscode
   idea.idea-ultimate
-  emacs
+  emacs26-nox
   nginx
 
   # Terminal Emulator Stuff

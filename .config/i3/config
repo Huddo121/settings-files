@@ -148,6 +148,9 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+Shift+a focus child
 
+# Custom key bindings
+bindsym Ctrl+Print exec flameshot gui
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -239,7 +242,7 @@ exec --no-startup-id xscreensaver
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # Screenshot tooling
-exec --no-startup-id flameshot
+exec --no-startup-id flameshot config -t true
 
 # Compositor and Monitor setup
 exec --no-startup-id xrandr --output DP-1.2.1 --auto --output DP-1.1 --auto --right-of DP-1.2.1 --output DVI-I-1 --auto --right-of DP-1.1
