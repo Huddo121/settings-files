@@ -6,4 +6,5 @@ card nixos {
 
   spark file zsh.sus
   spark file wm.sus
+  spark file editors.sus
 }

@@ -1,3 +1,6 @@
 [submodule "oh-my-zsh/.oh-my-zsh/custom/plugins/nix-shell"]
 	path = oh-my-zsh/.oh-my-zsh/custom/plugins/nix-shell
 	url = git@github.com:chisui/zsh-nix-shell.git
+[submodule "submodules/vim-plug"]
+	path = submodules/vim-plug
+	url = https://github.com/junegunn/vim-plug
