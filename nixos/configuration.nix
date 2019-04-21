@@ -178,7 +178,10 @@ map to guest = bad user
   nixpkgs.config.allowUnfree = true;
 
   hardware = {
-    opengl.driSupport32Bit = true;
+    opengl = {
+      enable = true;
+      driSupport32Bit = true;
+    };
     pulseaudio = {
       enable = true;
       support32Bit = true;
