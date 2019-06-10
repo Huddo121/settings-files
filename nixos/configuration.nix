@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./cachix.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -18,7 +19,7 @@
 
   boot.extraModulePackages = [
     config.boot.kernelPackages.rtl8814au
- ];
+  ];
 
   networking.hostName = "Arcturus"; # Define your hostname.
   networking.networkmanager.enable = true;
@@ -37,6 +38,7 @@
     which
     bind
     ffmpeg-full
+    exfat
 
     # Desktop/WM stuff
     compton
@@ -173,9 +175,13 @@ map to guest = bad user
             };
         };
     };
-  };
 
-  nixpkgs.config.allowUnfree = true;
+    factorio = {
+      enable = true;
+      game-name = "Mikeys Game";
+      lan = true;
+    };
+  };
 
   hardware = {
     opengl = {

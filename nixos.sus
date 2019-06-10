@@ -3,6 +3,8 @@ card nixos {
   outof nixos
 
   configuration.nix
+  cachix.nix
+  cachix
 
   spark file zsh.sus
   spark file wm.sus
