@@ -1,3 +1,12 @@
 card macOS {
     spark file zsh.sus
+    spark card machinerc 
 }
+
+card machinerc {
+    into ~
+    outof macOS
+
+    .machinerc
+}
+

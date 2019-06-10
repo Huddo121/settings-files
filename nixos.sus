@@ -10,3 +10,11 @@ card nixos {
   spark file wm.sus
   spark file editors.sus
 }
+
+card machinerc {
+  into ~
+  outof nixos
+
+  .machinerc
+}
+
