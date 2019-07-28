@@ -17,6 +17,8 @@
     efi.canTouchEfiVariables = true;
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   boot.extraModulePackages = [
     config.boot.kernelPackages.rtl8814au
   ];
@@ -111,7 +113,7 @@
     compton = {
       enable = true;
       backend = "glx";
-      vSync = "opengl-swc";
+      vSync = true;
       refreshRate = 60;
       opacityRules = [
         "85:class_g = 'kitty' && !_NET_WM_STATE@:32a"
@@ -126,12 +128,12 @@
       fade = true;
       fadeDelta = 2;
 
-      extraOptions = ''
-no-dnd-shadow = true;
-no-dock-shadow = true;
-clear-shadow = true;
-shadow-radius = 5;
-      '';
+      settings = {
+        no-dnd-shadow = true;
+        no-dock-shadow = true;
+        clear-shadow = true;
+        shadow-radius = 5;
+      };
 
     };
 
