@@ -95,7 +95,7 @@
       };
 
       desktopManager = {
-        default = "xfce";
+        default = "xfce+i3";
         xterm.enable = false;
         xfce ={
           enable = true;
@@ -178,6 +178,21 @@ map to guest = bad user
         };
     };
 
+    # Games
+
+    minecraft-server = {
+      enable = true;
+      eula = true;
+      openFirewall = true;
+      declarative = true;
+      serverProperties = {
+        motd = "Megaman fun times";
+        difficulty = "normal";
+        level-name = "megaman";
+        level-seed = "megaman";
+      };
+    };
+
     factorio = {
       enable = true;
       game-name = "Mikeys Game";
@@ -206,6 +221,7 @@ map to guest = bad user
       5050    # Couchpotato
       8989    # Sonarr
       6656    # Moko file share
+      25565   # Minecraft
   ];
   networking.firewall.allowedUDPPorts = [
       137 138 # Samba
