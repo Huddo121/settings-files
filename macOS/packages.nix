@@ -7,9 +7,7 @@ with import <nixpkgs> {
   super-user-spark
 
   # Developer Tools
-  idea.idea-ultimate
   vscode
-  postman
 
   # Terminal Software
   # iterm2 # Might need XCode to be installed
@@ -20,9 +18,5 @@ with import <nixpkgs> {
   bat # better-cat
 
   # Media software
-  discord
-  obs-studio
-  # steam # This fails because chrootenv isn't supported on darwin
-  vlc
 ]
 
