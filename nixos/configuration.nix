@@ -105,11 +105,16 @@
         };
       };
 
-      displayManager.sddm = {
+      displayManager.lightdm = {
         enable = true;
+        greeter.enable = true;
+        greeters.enso = {
+          enable = true;
+          blur = true;
+        };
       };
     };
-
+   
     compton = {
       enable = true;
       backend = "glx";
@@ -179,7 +184,6 @@ map to guest = bad user
     };
 
     # Games
-
     minecraft-server = {
       enable = true;
       eula = true;
@@ -191,12 +195,6 @@ map to guest = bad user
         level-name = "megaman";
         level-seed = "megaman";
       };
-    };
-
-    factorio = {
-      enable = true;
-      game-name = "Mikeys Game";
-      lan = true;
     };
   };
 
@@ -234,13 +232,12 @@ map to guest = bad user
   sound.mediaKeys.enable = true;
 
   # Enable Virtualisation Config
-  # virtualisation.virtualbox.host.enable = true;
   virtualisation.docker.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.mhudson = {
     createHome   = true;
-    extraGroups  = [ "wheel" "video" "audio" "disk" "networkmanager" "docker" "vboxusers" ];
+    extraGroups  = [ "wheel" "video" "audio" "disk" "networkmanager" "docker" ];
     group        = "users";
     home         = "/home/mhudson";
     isNormalUser = true;

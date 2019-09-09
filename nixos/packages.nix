@@ -22,6 +22,7 @@ with import <nixpkgs> {
 
   # Miscellaneous utilities
   bat # better-cat
+  okular # PDF Reader
 
   # Media software
   audacity
