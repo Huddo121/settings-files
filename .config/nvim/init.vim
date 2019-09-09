@@ -10,5 +10,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'joshdick/onedark.vim'
 call plug#end()
 
+" If you get errors on startup, have you remembered to run :PlugInstall?
 colorscheme onedark
 

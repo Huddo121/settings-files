@@ -1,5 +1,6 @@
 card macOS {
     spark file zsh.sus
+    spark file editors.sus
     spark card machinerc 
 }
 
