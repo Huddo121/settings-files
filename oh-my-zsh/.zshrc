@@ -103,6 +103,10 @@ autoload -U compinit && compinit
 # Stop sharing history between different terminal windows
 unsetopt share_history
 
+# Common Environment Variables
+export JAVA_OPTIONS="-Xms4096m -Xmx4096m -XX:MaxMetaspaceSize=1024m"
+export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xss2M"
+
 # Load some OS-specific config
 . $HOME/.machinerc
 
