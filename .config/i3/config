@@ -84,6 +84,12 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2% #i
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 
+# Audio on my Ducky Keyboard with different keycaps
+bindsym XF86Calculator exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86Explorer exec --no-startup-id pactl set-sink-volume 0 -2%
+bindsym XF86Mail exec --no-startup-id playerctl play-pause
+bindsym XF86HomePage exec --no-startup-id pactl set-sink-volume 0 +2%
+
 # Media player controls
 # bindsym XF86AudioPlay exec playerctl play
 # bindsym XF86AudioPause exec playerctl pause

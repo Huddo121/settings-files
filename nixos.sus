@@ -6,9 +6,9 @@ card nixos {
   cachix.nix
   cachix
 
-  spark file zsh.sus
-  spark file wm.sus
-  spark file editors.sus
+  spark file ./zsh.sus
+  spark file ./wm.sus
+  spark file ./editors.sus
   spark card machinerc
 }
 
