@@ -17,13 +17,12 @@
     efi.canTouchEfiVariables = true;
   };
 
+  # Pick which kernel to run. Need a newer one for Ryzen.
+  boot.kernelPackages = pkgs.linuxPackages_5_2;
+
   nixpkgs.config.allowUnfree = true;
 
-  boot.extraModulePackages = [
-    config.boot.kernelPackages.rtl8814au
-  ];
-
-  networking.hostName = "Arcturus"; # Define your hostname.
+  networking.hostName = "Altair";
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;
   powerManagement.enable = false;
@@ -41,6 +40,7 @@
     bind
     ffmpeg-full
     exfat
+    ntfs3g
 
     # Desktop/WM stuff
     compton
@@ -53,7 +53,10 @@
     })
     flameshot
     rofi
-    sddm-kcm
+
+    xfce.xfce4-taskmanager
+    xfce.xfce4-power-manager
+
 
     google-chrome
   ];
@@ -65,11 +68,6 @@
   # started in user sessions.
   programs.bash.enableCompletion = true;
 
-  # Set up the JDK
-  programs.java = {
-    enable = true;
-  };
-
   fonts.enableFontDir = true;
   fonts.fontconfig.ultimate.enable = true;
   fonts.fonts = with pkgs; [
@@ -79,6 +77,21 @@
     material-icons
     source-code-pro
   ];
+
+  # Set up the external drives to be mounted
+  fileSystems.quatro = {
+    device = "/dev/sda1";
+    mountPoint = "/media/quatro";
+    fsType = "ntfs-3g";
+    label = "Quatro";
+  };
+
+  fileSystems.uno = {
+    device = "/dev/sdb1";
+    mountPoint = "/media/uno";
+    label = "Uno";
+  };
+
 
   # List services that you want to enable:
   services = {
@@ -95,7 +108,7 @@
       };
 
       desktopManager = {
-        default = "xfce+i3";
+        default = "xfce";
         xterm.enable = false;
         xfce ={
           enable = true;
@@ -249,6 +262,6 @@ map to guest = bad user
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "18.03"; # Did you read the comment?
+  system.stateVersion = "20.03"; # Did you read the comment?
 
 }
