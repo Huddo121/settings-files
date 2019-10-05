@@ -57,12 +57,16 @@
     xfce.xfce4-taskmanager
     xfce.xfce4-power-manager
 
-
     google-chrome
   ];
 
   programs.zsh.enable = true;
   programs.zsh.ohMyZsh.enable = true;
+
+  programs.java = {
+    enable = true;
+    package = pkgs.jdk;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -92,6 +96,12 @@
     label = "Uno";
   };
 
+  fileSystems.medio = {
+    device = "/dev/sdd1";
+    mountPoint = "/media/medio";
+    label = "Medio";
+  };
+
 
   # List services that you want to enable:
   services = {
@@ -116,6 +126,10 @@
 	  thunarPlugins = [ pkgs.xfce.thunar-archive-plugin ];
           enableXfwm = false;
         };
+
+        gnome3 = {
+          enable = true;
+        };
       };
 
       displayManager.lightdm = {
@@ -127,7 +141,20 @@
         };
       };
     };
-   
+
+    gnome3 = {
+      evolution-data-server.enable = true;
+      file-roller.enable = true;
+      gnome-disks.enable = true;
+      gnome-documents.enable = true;
+      gnome-keyring.enable = true;
+      gvfs.enable = true;
+      seahorse.enable = true;
+      sushi.enable = true;
+      tracker-miners.enable = true;
+      tracker.enable = true;
+    };
+ 
     compton = {
       enable = true;
       backend = "glx";
@@ -207,6 +234,7 @@ map to guest = bad user
         difficulty = "normal";
         level-name = "megaman";
         level-seed = "megaman";
+        view-distance = 18;
       };
     };
   };
@@ -246,6 +274,9 @@ map to guest = bad user
 
   # Enable Virtualisation Config
   virtualisation.docker.enable = true;
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+  users.extraGroups.vboxusers.members = [ "mhudson" ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.mhudson = {
