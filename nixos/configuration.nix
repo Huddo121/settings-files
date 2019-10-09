@@ -150,7 +150,7 @@
       tracker.enable = true;
     };
 
-    compton = {
+   compton = {
       enable = true;
       backend = "glx";
       vSync = true;
