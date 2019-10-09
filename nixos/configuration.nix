@@ -144,17 +144,12 @@
 
     gnome3 = {
       evolution-data-server.enable = true;
-      file-roller.enable = true;
-      gnome-disks.enable = true;
-      gnome-documents.enable = true;
       gnome-keyring.enable = true;
-      gvfs.enable = true;
-      seahorse.enable = true;
       sushi.enable = true;
       tracker-miners.enable = true;
       tracker.enable = true;
     };
- 
+
     compton = {
       enable = true;
       backend = "glx";
@@ -239,6 +234,13 @@ map to guest = bad user
     };
   };
 
+  # gnome3 utilities
+  services.gvfs.enable = true;
+  programs.seahorse.enable = true;
+  programs.gnome-documents.enable = true;
+  programs.gnome-disks.enable = true;
+  programs.file-roller.enable = true;
+
   hardware = {
     opengl = {
       enable = true;
@@ -274,8 +276,8 @@ map to guest = bad user
 
   # Enable Virtualisation Config
   virtualisation.docker.enable = true;
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
+  # virtualisation.virtualbox.host.enable = true;
+  # virtualisation.virtualbox.host.enableExtensionPack = true;
   users.extraGroups.vboxusers.members = [ "mhudson" ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
