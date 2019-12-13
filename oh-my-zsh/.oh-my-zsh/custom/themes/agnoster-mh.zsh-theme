@@ -78,10 +78,12 @@ prompt_end() {
 ### Prompt components
 # Each component will draw itself, and hide itself if no information needs to be shown
 
+THIS_MACHINE=$(hostname -s)
+
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-		prompt_segment black default "%(!.%{%F{yellow}%}.)>>="
+		prompt_segment black default "%(!.%{%F{yellow}%}.)$THIS_MACHINE >>="
   fi
 }
 
