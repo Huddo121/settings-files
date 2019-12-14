@@ -18,7 +18,7 @@
   };
 
   # Pick which kernel to run. Need a newer one for Ryzen.
-  boot.kernelPackages = pkgs.linuxPackages_5_2;
+  boot.kernelPackages = pkgs.linuxPackages_5_3;
 
   nixpkgs.config.allowUnfree = true;
 
@@ -57,6 +57,8 @@
     xfce.xfce4-taskmanager
     xfce.xfce4-power-manager
 
+    lxappearance
+
     google-chrome
   ];
 
@@ -73,7 +75,6 @@
   programs.bash.enableCompletion = true;
 
   fonts.enableFontDir = true;
-  fonts.fontconfig.ultimate.enable = true;
   fonts.fonts = with pkgs; [
     fira-code
     fira-code-symbols
@@ -249,8 +250,20 @@ map to guest = bad user
     pulseaudio = {
       enable = true;
       support32Bit = true;
+      package = pkgs.pulseaudioFull;
+    };
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+      package = pkgs.bluezFull;
+      extraConfig =''
+[General]
+ControllerMode=dual 
+'';
     };
   };
+
+  services.blueman.enable = true;
 
   # Open ports in the firewall.
   networking.firewall.allowPing = true;
