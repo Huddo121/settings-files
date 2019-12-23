@@ -1,0 +1,12 @@
+card linux {
+  spark file ./zsh.sus
+  spark file ./editors.sus
+  spark card machinerc
+}
+
+card machinerc {
+  into ~
+  outof linux
+
+  .machinerc
+}
