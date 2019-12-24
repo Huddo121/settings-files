@@ -4,7 +4,13 @@ card zsh {
 
   .zshrc
 
+  spark card oh-my-zsh
+}
+
+card oh-my-zsh {
+  into ~/.oh-my-zsh/custom
+
   # The following is somewhat specific, so as to not delete the entire custom directory.
-  .oh-my-zsh/custom/themes/agnoster-mh.zsh-theme
-  .oh-my-zsh/custom/plugins/nix-shell
+  oh-my-zsh/themes/agnoster-mh.zsh-theme -> themes/agnoster-mh.zsh-theme
+  submodules/zsh-nix-shell -> plugins/nix-shell
 }

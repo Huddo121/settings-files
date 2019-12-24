@@ -1,0 +1,29 @@
+card linux {
+  spark file ./zsh.sus
+  spark file ./editors.sus
+
+  spark card machinerc
+  spark card kitty
+  spark card nixpkgs
+}
+
+card machinerc {
+  into ~
+  outof linux
+
+  .machinerc
+}
+
+card kitty {
+  into ~/.config
+  
+  linux/kitty -> kitty
+  submodules/kitty-themes/themes -> kitty/themes
+}
+
+card nixpkgs {
+    into ~/.config
+    outof linux
+
+    nixpkgs
+}
