@@ -15,10 +15,9 @@ card machinerc {
 }
 
 card kitty {
-  into ~/.config
-  
-  linux/kitty -> kitty
-  submodules/kitty-themes/themes -> kitty/themes
+  into ~/.config/kitty
+
+  .config/kitty/kitty.conf -> kitty.conf
 }
 
 card nixpkgs {
@@ -26,4 +25,5 @@ card nixpkgs {
     outof linux
 
     nixpkgs
+    nix
 }
