@@ -4,3 +4,6 @@
 [submodule "vim-plug"]
 	path = submodules/vim-plug
 	url = https://github.com/junegunn/vim-plug
+[submodule "kitty-themes"]
+	path = submodules/kitty-themes
+	url = https://github.com/dexpota/kitty-themes
