@@ -5,6 +5,7 @@ card linux {
   spark card machine-specific
   spark card kitty
   spark card nixpkgs
+  spark card vscode
 }
 
 card machine-specific {
@@ -27,4 +28,13 @@ card nixpkgs {
 
   nixpkgs
   nix
+}
+
+# Have to have per-machine VSCode config because the final locations
+#  change based on machine
+card vscode {
+  into "~/.config/Code - OSS/User"
+  outof vscode
+
+  settings.json
 }
