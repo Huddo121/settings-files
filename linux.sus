@@ -2,28 +2,39 @@ card linux {
   spark file ./zsh.sus
   spark file ./editors.sus
 
-  spark card machinerc
+  spark card machine-specific
   spark card kitty
   spark card nixpkgs
+  spark card vscode
 }
 
-card machinerc {
+card machine-specific {
   into ~
   outof linux
 
   .machinerc
+  .profile
 }
 
 card kitty {
-  into ~/.config
-  
-  linux/kitty -> kitty
-  submodules/kitty-themes/themes -> kitty/themes
+  into ~/.config/kitty
+
+  .config/kitty/kitty.conf -> kitty.conf
 }
 
 card nixpkgs {
-    into ~/.config
-    outof linux
+  into ~/.config
+  outof linux
 
-    nixpkgs
+  nixpkgs
+  nix
+}
+
+# Have to have per-machine VSCode config because the final locations
+#  change based on machine
+card vscode {
+  into "~/.config/Code - OSS/User"
+  outof vscode
+
+  settings.json
 }
