@@ -2,16 +2,17 @@ card linux {
   spark file ./zsh.sus
   spark file ./editors.sus
 
-  spark card machinerc
+  spark card machine-specific
   spark card kitty
   spark card nixpkgs
 }
 
-card machinerc {
+card machine-specific {
   into ~
   outof linux
 
   .machinerc
+  .profile
 }
 
 card kitty {
@@ -21,9 +22,9 @@ card kitty {
 }
 
 card nixpkgs {
-    into ~/.config
-    outof linux
+  into ~/.config
+  outof linux
 
-    nixpkgs
-    nix
+  nixpkgs
+  nix
 }
