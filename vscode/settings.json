@@ -26,4 +26,5 @@
     "workbench.colorTheme": "Solarized Dark",
     "workbench.iconTheme": "vs-seti",
     "gitlens.codeLens.enabled": false,
+    "window.zoomLevel": 0,
 }

@@ -4,10 +4,11 @@ with import <nixpkgs> {
 };
 [
   # Configuration/System Management
-  super-user-spark
+  #super-user-spark # This is broken for some reason
 
   # Developer Tools
   vscode
+  # neovim # Also broken for some reason
 
   # Terminal Software
   # iterm2 # Might need XCode to be installed

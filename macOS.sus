@@ -2,6 +2,7 @@ card macOS {
     spark file zsh.sus
     spark file editors.sus
     spark card machinerc 
+    spark card vscode
 }
 
 card machinerc {
@@ -11,3 +12,11 @@ card machinerc {
     .machinerc
 }
 
+# Have to have per-machine VSCode config because the final locations
+#  change based on machine
+card vscode {
+  into "~/Library/Application Support/Code/User"
+  outof vscode
+
+  settings.json
+}
