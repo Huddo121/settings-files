@@ -6,6 +6,8 @@
     "editor.fontFamily": "'Fira Code','Droid Sans Mono','Menlo','Monaco','Courier New','monospace', monospace",
     "editor.fontLigatures": true,
     "editor.fontSize": 14,
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
     "editor.minimap.enabled": false,
     "editor.renderFinalNewline": true,
 
@@ -20,11 +22,17 @@
         "result/": true
     },
 
+    //Pretty much always want eslint enabled
+    "eslint.enable": true,
+    "eslint.run": "onSave",
+
     "gitlens.advanced.telemetry.enabled": false,
     "gitlens.blame.highlight.enabled": false,
+    "gitlens.codeLens.enabled": false,
 
     "workbench.colorTheme": "Solarized Dark",
     "workbench.iconTheme": "vs-seti",
-    "gitlens.codeLens.enabled": false,
     "window.zoomLevel": 0,
+
+    "zenMode.hideTabs": false,
 }

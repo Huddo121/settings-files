@@ -1,7 +1,7 @@
 card macOS {
     spark file zsh.sus
     spark file editors.sus
-    spark card machinerc 
+    spark card machinerc
     spark card vscode
 }
 
@@ -16,7 +16,8 @@ card machinerc {
 #  change based on machine
 card vscode {
   into "~/Library/Application Support/Code/User"
-  outof vscode
 
-  settings.json
+  vscode/settings.json -> settings.json
+
+  macOS/vscode-keybindings.json -> keybindings.json
 }
