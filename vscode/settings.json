@@ -35,4 +35,5 @@
     "window.zoomLevel": 0,
 
     "zenMode.hideTabs": false,
+    "terminal.integrated.scrollback": 10000,
 }
