@@ -113,3 +113,4 @@ export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -X
 # Use vim (or neovim) as the default system editor
 export EDITOR=vim
 
+[ -f "/Users/mhudson/.ghcup/env" ] && source "/Users/mhudson/.ghcup/env" # ghcup-env
