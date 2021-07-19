@@ -32,8 +32,30 @@
 
     "workbench.colorTheme": "Solarized Dark",
     "workbench.iconTheme": "vs-seti",
-    "window.zoomLevel": 0,
 
     "zenMode.hideTabs": false,
     "terminal.integrated.scrollback": 10000,
+    "go.useLanguageServer": true,
+    "go.formatTool": "goimports",
+    "files.watcherExclude": {
+        "**/.bloop": true,
+        "**/.metals": true,
+        "**/.ammonite": true
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "workbench.welcomePage.hiddenCategories": [
+        "Setup",
+        "Beginner"
+    ],
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }

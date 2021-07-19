@@ -3,6 +3,7 @@ card zsh {
   outof oh-my-zsh
 
   .zshrc
+  .zprofile
 
   spark card oh-my-zsh
 }

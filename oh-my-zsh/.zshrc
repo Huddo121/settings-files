@@ -84,14 +84,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# export NVM_DIR="/Users/mhudson/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# Make sure Nix is available on macOS
-NIX_BOOTSTRAP=$HOME/.nix-profile/etc/profile.d/nix.sh
-if [ -e $NIX_BOOTSTRAP ]; then
-    . $HOME/.nix-profile/etc/profile.d/nix.sh
-fi
+export NVM_DIR="/Users/mhudson/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Nix-shell extension for ZSH
 . $ZSH_CUSTOM/plugins/nix-shell/nix-shell.plugin.zsh
@@ -113,4 +107,5 @@ export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -X
 # Use vim (or neovim) as the default system editor
 export EDITOR=vim
 
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 [ -f "/Users/mhudson/.ghcup/env" ] && source "/Users/mhudson/.ghcup/env" # ghcup-env
