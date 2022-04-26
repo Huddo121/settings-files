@@ -1,61 +1,64 @@
 {
-    "files.autoSave": "onFocusChange",
-    "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true,
+  "files.autoSave": "onFocusChange",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
 
-    "editor.fontFamily": "'Fira Code','Droid Sans Mono','Menlo','Monaco','Courier New','monospace', monospace",
-    "editor.fontLigatures": true,
-    "editor.fontSize": 14,
-    "editor.formatOnType": true,
-    "editor.formatOnPaste": true,
-    "editor.minimap.enabled": false,
-    "editor.renderFinalNewline": true,
+  "editor.fontFamily": "'Fira Code','Droid Sans Mono','Menlo','Monaco','Courier New','monospace', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "editor.formatOnType": true,
+  "editor.formatOnPaste": true,
+  "editor.minimap.enabled": false,
+  "editor.renderFinalNewline": true,
 
-    "search.exclude": {
-        "**/node_modules": true,
-        "**/node_modules_prod": true,
-        "**/bower_components": true,
-        "**/target": true,
-        "build/": true,
-        "build-output": true,
-        "flow-typed/": true,
-        "result/": true
-    },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/node_modules_prod": true,
+    "**/bower_components": true,
+    "**/target": true,
+    "build/": true,
+    "build-output": true,
+    "flow-typed/": true,
+    "result/": true
+  },
 
-    //Pretty much always want eslint enabled
-    "eslint.enable": true,
-    "eslint.run": "onSave",
+  //Pretty much always want eslint enabled
+  "eslint.enable": true,
+  "eslint.run": "onSave",
 
-    "gitlens.advanced.telemetry.enabled": false,
-    "gitlens.blame.highlight.enabled": false,
-    "gitlens.codeLens.enabled": false,
+  "gitlens.advanced.telemetry.enabled": false,
+  "gitlens.blame.highlight.enabled": false,
+  "gitlens.codeLens.enabled": false,
 
-    "workbench.colorTheme": "Solarized Dark",
-    "workbench.iconTheme": "vs-seti",
+  "workbench.colorTheme": "One Dark Pro",
+  "workbench.iconTheme": "vs-seti",
 
-    "zenMode.hideTabs": false,
-    "terminal.integrated.scrollback": 10000,
-    "go.useLanguageServer": true,
-    "go.formatTool": "goimports",
-    "files.watcherExclude": {
-        "**/.bloop": true,
-        "**/.metals": true,
-        "**/.ammonite": true
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "workbench.welcomePage.hiddenCategories": [
-        "Setup",
-        "Beginner"
-    ],
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+  "zenMode.hideTabs": false,
+  "terminal.integrated.scrollback": 10000,
+  "go.useLanguageServer": true,
+  "go.formatTool": "goimports",
+  "files.watcherExclude": {
+    "**/.bloop": true,
+    "**/.metals": true,
+    "**/.ammonite": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "workbench.welcomePage.hiddenCategories": ["Setup", "Beginner"],
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.startupEditor": "none",
+  "editor.bracketPairColorization.enabled": true,
+  "codestream.email": "mhudson@atlassian.com",
+  "editor.formatOnSave": true,
+  "explorer.confirmDelete": false,
+  "window.zoomLevel": 1
 }
