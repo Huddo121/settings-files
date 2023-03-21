@@ -2,15 +2,13 @@
   "files.autoSave": "onFocusChange",
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
-
   "editor.fontFamily": "'Fira Code','Droid Sans Mono','Menlo','Monaco','Courier New','monospace', monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 14,
   "editor.formatOnType": true,
   "editor.formatOnPaste": true,
   "editor.minimap.enabled": false,
-  "editor.renderFinalNewline": true,
-
+  "editor.renderFinalNewline": "on",
   "search.exclude": {
     "**/node_modules": true,
     "**/node_modules_prod": true,
@@ -21,18 +19,14 @@
     "flow-typed/": true,
     "result/": true
   },
-
   //Pretty much always want eslint enabled
   "eslint.enable": true,
   "eslint.run": "onSave",
-
   "gitlens.advanced.telemetry.enabled": false,
   "gitlens.blame.highlight.enabled": false,
   "gitlens.codeLens.enabled": false,
-
-  "workbench.colorTheme": "One Dark Pro",
+  "workbench.colorTheme": "Solarized Dark",
   "workbench.iconTheme": "vs-seti",
-
   "zenMode.hideTabs": false,
   "terminal.integrated.scrollback": 10000,
   "go.useLanguageServer": true,
@@ -60,5 +54,10 @@
   "codestream.email": "mhudson@atlassian.com",
   "editor.formatOnSave": true,
   "explorer.confirmDelete": false,
-  "window.zoomLevel": 1
+  "extensions.ignoreRecommendations": true,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "haskell.manageHLS": "GHCup",
+  "editor.tabSize": 2
 }
