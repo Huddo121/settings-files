@@ -32,7 +32,6 @@ with import <nixpkgs> {
   pavucontrol
 
   # Assorted tools
-  super-user-spark
   ispell
 
   # Themes
