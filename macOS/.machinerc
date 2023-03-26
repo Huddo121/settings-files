@@ -2,7 +2,7 @@
 
 # export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 # export JAVA_HOME=`/usr/libexec/java_home -v 11`
-export JAVA_HOME=`/usr/libexec/java_home -v 17`
+# export JAVA_HOME=`/usr/libexec/java_home -v 17`
 
 export PATH="$HOME/.yarn/bin:$HOME/bin:$PATH"
 

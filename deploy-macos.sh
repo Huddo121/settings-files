@@ -20,7 +20,7 @@ ln -svf $PWD/oh-my-zsh/themes/agnoster-mh.zsh-theme     ~/.oh-my-zsh/custom/them
 ln -svf $PWD/submodules/zsh-nix-shell                   ~/.oh-my-zsh/custom/plugins/nix-shell
 
 # Other editor files
-mkdir -p ~/.config
+mkdir -p ~/.config/nvim
 ln -svf $PWD/.config/nvim/init.vim                      ~/.config/nvim/init.vim
 
 mkdir -p ~/.local/share/nvim/site/autoload

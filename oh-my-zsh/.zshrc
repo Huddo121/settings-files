@@ -104,5 +104,13 @@ export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -X
 # Use vim (or neovim) as the default system editor
 export EDITOR=vim
 
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-[ -f "/Users/mhudson/.ghcup/env" ] && source "/Users/mhudson/.ghcup/env" # ghcup-env
+if [ -s "$NVM_DIR/bash_completion" ]
+then
+    source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
+
+if [ -f "/Users/mhudson/.ghcup/env" ]
+then
+    source "/Users/mhudson/.ghcup/env" # ghcup-env
+fi
+
