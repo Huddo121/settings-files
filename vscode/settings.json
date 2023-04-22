@@ -59,5 +59,6 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "haskell.manageHLS": "GHCup",
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "git.openRepositoryInParentFolders": "always"
 }

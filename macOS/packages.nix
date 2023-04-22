@@ -4,7 +4,8 @@ with import <nixpkgs> {
 };
 [
   # Developer Tools
-  # neovim # Also broken for some reason
+  neovim
+  bash
 
   # Terminal stuff
   oh-my-zsh
