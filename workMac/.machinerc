@@ -1,0 +1,24 @@
+# macOS specific config
+
+# export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+# export JAVA_HOME=`/usr/libexec/java_home -v 11`
+export JAVA_HOME=`/usr/libexec/java_home -v 17`
+
+export PATH="$HOME/.yarn/bin:$HOME/bin:$PATH"
+
+# Annoyingly zprofile doesn't seem to get called any more
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
+ORBIT_CHECKOUT="/Users/mhudson/Development/ExL/orbit"
+
+toorb() {
+  cd $ORBIT_CHECKOUT
+}
+
+dorb() {
+  # yarn --cwd $ORBIT_CHECKOUT run clean && \
+  yarn --cwd $ORBIT_CHECKOUT run build && \
+  ORBIT_ANALYTICS_ENV='stg' VERBOSE=1 atlas atlasdev exec --binary node $ORBIT_CHECKOUT/pavedPathTool/dist/index.js -- $@
+}
