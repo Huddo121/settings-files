@@ -25,3 +25,7 @@ ln -svf $PWD/.config/nvim/init.vim                      ~/.config/nvim/init.vim
 
 mkdir -p ~/.local/share/nvim/site/autoload
 ln -svf $PWD/submodules/vim-plug/plug.vim               ~/.local/share/nvim/site/autoload
+
+# Git hooks
+mkdir -p ~/.git/hooks
+ln -svf $PWD/git-hooks/prepare-commit-message           ~/.git/hooks/prepare-commit-message

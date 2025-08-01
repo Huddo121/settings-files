@@ -97,6 +97,22 @@ unsetopt share_history
 # Common Environment Variables
 export JAVA_OPTIONS="-Xms4096m -Xmx4096m -XX:MaxMetaspaceSize=1024m"
 
+# Set up aliases for making my life easier
+alias gcm='() {
+  git commit -m $@
+;}'
+
+alias gpa='() {
+  git add . && gcm $@ && git push
+;}'
+
+alias gpom='git pull origin master'
+
+# Loads up the secrets for Contexts production from my infisical instance
+ctxprod() {
+    eval "$(infisical export --projectId=9e13fac1-808e-440b-80e6-19d1995bf7ea --env=prod --format=dotenv-export)"
+}
+
 # Load some OS-specific config
 . $HOME/.machinerc
 
@@ -112,4 +128,13 @@ if [ -f "/Users/mhudson/.ghcup/env" ]
 then
     source "/Users/mhudson/.ghcup/env" # ghcup-env
 fi
+
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
+
+zstyle ':completion:*' menu select
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/mhudson/.lmstudio/bin"
+# End of LM Studio CLI section
 

@@ -5,7 +5,6 @@
   "editor.fontFamily": "'Fira Code','Droid Sans Mono','Menlo','Monaco','Courier New','monospace', monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 14,
-  "editor.formatOnType": true,
   "editor.formatOnPaste": true,
   "editor.minimap.enabled": false,
   "editor.renderFinalNewline": "on",
@@ -19,46 +18,57 @@
     "flow-typed/": true,
     "result/": true
   },
-  //Pretty much always want eslint enabled
-  "eslint.enable": true,
-  "eslint.run": "onSave",
   "gitlens.advanced.telemetry.enabled": false,
   "gitlens.blame.highlight.enabled": false,
   "gitlens.codeLens.enabled": false,
   "workbench.colorTheme": "Solarized Dark",
   "workbench.iconTheme": "vs-seti",
-  "zenMode.hideTabs": false,
   "terminal.integrated.scrollback": 10000,
-  "go.useLanguageServer": true,
-  "go.formatTool": "goimports",
   "files.watcherExclude": {
     "**/.bloop": true,
     "**/.metals": true,
     "**/.ammonite": true
   },
-  "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
-  "workbench.welcomePage.hiddenCategories": ["Setup", "Beginner"],
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "workbench.startupEditor": "none",
   "editor.bracketPairColorization.enabled": true,
-  "codestream.email": "mhudson@atlassian.com",
-  "editor.formatOnSave": true,
   "explorer.confirmDelete": false,
   "extensions.ignoreRecommendations": true,
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "haskell.manageHLS": "GHCup",
   "editor.tabSize": 2,
-  "git.openRepositoryInParentFolders": "always"
+  "git.openRepositoryInParentFolders": "always",
+  "svelte.enable-ts-plugin": true,
+  "sqltools.useNodeRuntime": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "always"
+  },
+  "relay.autoStartCompiler": true,
+  "debug.javascript.autoAttachFilter": "onlyWithFlag",
+  "biome.searchInPath": false,
+  "biome.lspBin": "./node_modules/.bin/biome",
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.guides.bracketPairs": "active",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "editor.formatOnSave": true,
+  "continue.enableTabAutocomplete": true,
+  "continue.showInlineTip": false,
+  "chat.commandCenter.enabled": false,
+  "chat.mcp.discovery.enabled": true,
+  "mcp": {
+    "servers": {}
+  },
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "github.copilot.chat.languageContext.typescript.enabled": true,
+  "docker.extension.enableComposeLanguageServer": false,
+  "biome.suggestInstallingGlobally": false,
+  "javascript.updateImportsOnFileMove.enabled": "never"
 }

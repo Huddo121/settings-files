@@ -3,8 +3,9 @@
 # export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 # export JAVA_HOME=`/usr/libexec/java_home -v 11`
 # export JAVA_HOME=`/usr/libexec/java_home -v 17`
+export JAVA_HOME=`/usr/libexec/java_home -v 21`
 
-export PATH="$HOME/.yarn/bin:$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.yarn/bin:$HOME/bin:$PATH"
 
 # Annoyingly zprofile doesn't seem to get called any more
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
