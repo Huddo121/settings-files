@@ -108,9 +108,36 @@ alias gpa='() {
 
 alias gpom='git pull origin master'
 
+# Function to start a child shell with Infisical secrets and environment indicator
+infisical-shell() {
+    local project=$1
+    local env_name=$2
+    local display_name=${3:-${env_name:u}}  # Use uppercase version if display name not provided
+
+    if [[ -z "$env_name" ]]; then
+        echo "Usage: infisical-shell <environment> [display_name]"
+        echo "Example: infisical-shell dev"
+        echo "Example: infisical-shell production PROD"
+        return 1
+    fi
+
+    # Export secrets and set environment indicator
+    local secrets_export
+    secrets_export=$(infisical export --projectId="$project" --env="$env_name" --format=dotenv-export 2>/dev/null)
+
+    if [[ $? -ne 0 ]]; then
+        echo "Error: Failed to load secrets for environment '$env_name'"
+        return 1
+    fi
+
+    # Start child shell with secrets and environment indicator
+    env SECRET_ENV_NAME="$display_name" SECRET_ENV_TYPE="$env_name" \
+        bash -c "$secrets_export; exec zsh"
+}
+
 # Loads up the secrets for Contexts production from my infisical instance
 ctxprod() {
-    eval "$(infisical export --projectId=9e13fac1-808e-440b-80e6-19d1995bf7ea --env=prod --format=dotenv-export)"
+    infisical-shell "9e13fac1-808e-440b-80e6-19d1995bf7ea" prod "CTX-PROD"
 }
 
 # Load some OS-specific config
