@@ -1,9 +1,0 @@
-card wm {
-  into ~/.config
-  outof .config
-
-  i3/config
-  kitty/kitty.conf
-  polybar/config
-  polybar/launch.sh
-}
