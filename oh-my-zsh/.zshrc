@@ -135,6 +135,22 @@ infisical-shell() {
         bash -c "$secrets_export; exec zsh"
 }
 
+localstack() {
+    export AWS_ACCESS_KEY_ID=test
+    export AWS_SECRET_ACCESS_KEY=testcreds
+    export AWS_ENDPOINT_URL_S3=http://localhost:9000
+    export AWS_ENDPOINT_URL=http://localhost.localstack.cloud:4566
+    export AWS_REGION=us-east-1
+}
+
+awsclear() {
+    export AWS_ACCESS_KEY_ID=
+    export AWS_SECRET_ACCESS_KEY=
+    export AWS_ENDPOINT_URL_S3=
+    export AWS_ENDPOINT_URL=
+    export AWS_REGION=
+}
+
 # Loads up the secrets for Contexts production from my infisical instance
 ctxdev() {
     infisical-shell "9e13fac1-808e-440b-80e6-19d1995bf7ea" dev "CTX-DEV"
