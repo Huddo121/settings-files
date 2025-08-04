@@ -136,6 +136,11 @@ infisical-shell() {
 }
 
 # Loads up the secrets for Contexts production from my infisical instance
+ctxdev() {
+    infisical-shell "9e13fac1-808e-440b-80e6-19d1995bf7ea" dev "CTX-DEV"
+}
+
+# Loads up the secrets for Contexts production from my infisical instance
 ctxprod() {
     infisical-shell "9e13fac1-808e-440b-80e6-19d1995bf7ea" prod "CTX-PROD"
 }
