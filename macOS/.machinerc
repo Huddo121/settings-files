@@ -1,5 +1,72 @@
 # macOS specific config
 
+
+# Add LMStudio CLI to the path
+export PATH="$PATH:/Users/mhudson/.lmstudio/bin"
+
+# Add opencode to the path
+export PATH="/Users/mhudson/.opencode/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/mhudson/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+
+# Function to start a child shell with Infisical secrets and environment indicator
+infisical-shell() {
+    local project=$1
+    local env_name=$2
+    local display_name=${3:-${env_name:u}}  # Use uppercase version if display name not provided
+
+    if [[ -z "$env_name" ]]; then
+        echo "Usage: infisical-shell <environment> [display_name]"
+        echo "Example: infisical-shell dev"
+        echo "Example: infisical-shell production PROD"
+        return 1
+    fi
+
+    # Export secrets and set environment indicator
+    local secrets_export
+    secrets_export=$(infisical export --projectId="$project" --env="$env_name" --format=dotenv-export 2>/dev/null)
+
+    if [[ $? -ne 0 ]]; then
+        echo "Error: Failed to load secrets for environment '$env_name'"
+        return 1
+    fi
+
+    # Start child shell with secrets and environment indicator
+    env SECRET_ENV_NAME="$display_name" SECRET_ENV_TYPE="$env_name" \
+        bash -c "$secrets_export; exec zsh"
+}
+
+localstack() {
+    export AWS_ACCESS_KEY_ID=test
+    export AWS_SECRET_ACCESS_KEY=testcreds
+    export AWS_ENDPOINT_URL_S3=http://localhost:9000
+    export AWS_ENDPOINT_URL=http://localhost.localstack.cloud:4566
+    export AWS_REGION=us-east-1
+}
+
+
+# Loads up the secrets for Contexts production from my infisical instance
+ctxdev() {
+    infisical-shell "9e13fac1-808e-440b-80e6-19d1995bf7ea" dev "CTX-DEV"
+}
+
+# Loads up the secrets for Contexts production from my infisical instance
+ctxprod() {
+    infisical-shell "9e13fac1-808e-440b-80e6-19d1995bf7ea" prod "CTX-PROD"
+}
+
+if [ -f "/Users/mhudson/.ghcup/env" ]
+then
+    source "/Users/mhudson/.ghcup/env" # ghcup-env
+fi
+
 # export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 # export JAVA_HOME=`/usr/libexec/java_home -v 11`
 # export JAVA_HOME=`/usr/libexec/java_home -v 17`

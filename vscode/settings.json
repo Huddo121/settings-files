@@ -57,9 +57,11 @@
   "continue.enableTabAutocomplete": true,
   "continue.showInlineTip": false,
   "chat.commandCenter.enabled": false,
-  "chat.mcp.discovery.enabled": true,
-  "mcp": {
-    "servers": {}
+  "chat.mcp.discovery.enabled": {
+    "claude-desktop": true,
+    "windsurf": true,
+    "cursor-global": true,
+    "cursor-workspace": true
   },
   "github.copilot.enable": {
     "*": false,
@@ -71,9 +73,23 @@
   "docker.extension.enableComposeLanguageServer": false,
   "biome.suggestInstallingGlobally": false,
   "javascript.updateImportsOnFileMove.enabled": "never",
-  "yaml.schemas": {
-    "/Users/mhudson/.vscode/extensions/continue.continue-1.1.71-darwin-arm64/config-yaml-schema.json": [
-      ".continue/**/*.yaml"
-    ]
-  }
+  "yaml.schemas": {  },
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "github.copilot.chat.codesearch.enabled": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
 }

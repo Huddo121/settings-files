@@ -99,70 +99,23 @@ export JAVA_OPTIONS="-Xms4096m -Xmx4096m -XX:MaxMetaspaceSize=1024m"
 
 # Set up aliases for making my life easier
 alias gcm='() {
-  git commit -m $@
+    git commit -m "$@"
 ;}'
 
 alias gpa='() {
-  git add . && gcm $@ && git push
+    git add . && gcm $@ && git push
 ;}'
 
 alias gpom='git pull origin master'
 
-# Function to start a child shell with Infisical secrets and environment indicator
-infisical-shell() {
-    local project=$1
-    local env_name=$2
-    local display_name=${3:-${env_name:u}}  # Use uppercase version if display name not provided
-
-    if [[ -z "$env_name" ]]; then
-        echo "Usage: infisical-shell <environment> [display_name]"
-        echo "Example: infisical-shell dev"
-        echo "Example: infisical-shell production PROD"
-        return 1
-    fi
-
-    # Export secrets and set environment indicator
-    local secrets_export
-    secrets_export=$(infisical export --projectId="$project" --env="$env_name" --format=dotenv-export 2>/dev/null)
-
-    if [[ $? -ne 0 ]]; then
-        echo "Error: Failed to load secrets for environment '$env_name'"
-        return 1
-    fi
-
-    # Start child shell with secrets and environment indicator
-    env SECRET_ENV_NAME="$display_name" SECRET_ENV_TYPE="$env_name" \
-        bash -c "$secrets_export; exec zsh"
-}
-
-localstack() {
-    export AWS_ACCESS_KEY_ID=test
-    export AWS_SECRET_ACCESS_KEY=testcreds
-    export AWS_ENDPOINT_URL_S3=http://localhost:9000
-    export AWS_ENDPOINT_URL=http://localhost.localstack.cloud:4566
-    export AWS_REGION=us-east-1
-}
-
 awsclear() {
     unset AWS_ACCESS_KEY_ID
     unset AWS_SECRET_ACCESS_KEY
+    unset AWS_SESSION_TOKEN
     unset AWS_ENDPOINT_URL_S3
     unset AWS_ENDPOINT_URL
     unset AWS_REGION
 }
-
-# Loads up the secrets for Contexts production from my infisical instance
-ctxdev() {
-    infisical-shell "9e13fac1-808e-440b-80e6-19d1995bf7ea" dev "CTX-DEV"
-}
-
-# Loads up the secrets for Contexts production from my infisical instance
-ctxprod() {
-    infisical-shell "9e13fac1-808e-440b-80e6-19d1995bf7ea" prod "CTX-PROD"
-}
-
-# Load some OS-specific config
-. $HOME/.machinerc
 
 # Use vim (or neovim) as the default system editor
 export EDITOR=vim
@@ -172,17 +125,9 @@ then
     source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
-if [ -f "/Users/mhudson/.ghcup/env" ]
-then
-    source "/Users/mhudson/.ghcup/env" # ghcup-env
-fi
-
-
-fpath+=~/.zfunc; autoload -Uz compinit; compinit
+autoload -Uz compinit; compinit
 
 zstyle ':completion:*' menu select
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/mhudson/.lmstudio/bin"
-# End of LM Studio CLI section
-
+# Load some OS-specific config, done last as it should take precedence over other settings
+. $HOME/.machinerc
